@@ -324,7 +324,7 @@ class Pcap : public Nan::ObjectWrap {
         return Nan::ThrowError("Unable to set snaplen");
 
       // Always use promiscuous mode
-      if (pcap_set_promisc(obj->pcap_handle, 1) != 0)
+      if (pcap_set_promisc(obj->pcap_handle, 0) != 0)
         return Nan::ThrowError("Unable to set promiscuous mode");
 
       // Try to set buffer size. Sometimes the OS has a lower limit that it will
